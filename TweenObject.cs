@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 
 namespace RTween
 {
@@ -29,7 +28,6 @@ namespace RTween
         {
             Time += deltaTime / 2;
             float Rate = Time / TargetTime;
-            Debug.Log(Rate);
             if (Rate >= 1f)
             {
                 OnCompleted?.Invoke();

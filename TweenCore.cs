@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 namespace RTween
 {
     public class TweenCore : MonoBehaviour
     {
+        [SerializeField, NonEditable]
+        private int CurrentTweenCount = 0;
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -14,6 +17,7 @@ namespace RTween
         {
             lock (Tween.TweenObjectData)
             {
+                CurrentTweenCount = Tween.TweenObjectData.Values.Count;
                 foreach (var v in Tween.TweenObjectData.Values)
                 {
                     v.Update(Time.deltaTime);
